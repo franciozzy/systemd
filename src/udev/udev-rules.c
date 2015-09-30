@@ -1935,7 +1935,7 @@ int udev_rules_apply_to_event(struct udev_rules *rules,
                         bool match = false;
 
                         udev_list_entry_foreach(list_entry, udev_device_get_tags_list_entry(event->dev)) {
-                                if (streq(rules_str(rules, cur->key.value_off), udev_list_entry_get_name(list_entry))) {
+                                if (match_key(rules, cur, udev_list_entry_get_name(list_entry))){
                                         match = true;
                                         break;
                                 }
